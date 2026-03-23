@@ -34,11 +34,7 @@ resource "aws_instance" "instance" { # here aws_instance is resource type (prede
   ami           = var.ami_id # This is devops-practice AMI ID
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
-
-  tags = {
-    Name = "terraform" #This is our instance name
-    Purpose = var.ec2_tags
-  }
+  tags = var.ec2_tags
 }
 
 /* 
