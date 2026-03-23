@@ -7,14 +7,14 @@ resource "aws_security_group" "allow_tls" {
     from_port       = 22
     to_port         = 22
     protocol        = "tcp"
-    cidr_blocks      = var.cidr_range
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   egress {
     from_port       = 0
     to_port         = 0
-    protocol        = "-1"
-    cidr_blocks      = var.cidr_range
+    protocol        = "-1" #-1 means all if -1 is used then from and to ports should be 0
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   tags = {
