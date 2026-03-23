@@ -15,6 +15,11 @@ variable "instance_type" {
   default = "t3.micro"
 }
 
+variable "cidr_blocks" {
+    type = list(string)
+    default = ["0.0.0.0/0"]
+}
+
 variable "ec2_tags" {
     type = map
     default = {
@@ -23,4 +28,12 @@ variable "ec2_tags" {
         Environment = "dev"
         Name = "terraform-backend-dev"
     }
+}
+
+variable "sec_tag" {
+ type = map
+ default ={
+    Name = "allow_tag" # Name (refer security group for better understanding)
+ }
+
 }

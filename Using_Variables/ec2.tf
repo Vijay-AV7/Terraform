@@ -8,19 +8,17 @@ resource "aws_security_group" "allow_tls" {
     from_port       = 22
     to_port         = 22
     protocol        = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
+    cidr_blocks      = var.cidr_blocks
   }
 
   egress {
     from_port       = 0
     to_port         = 0
     protocol        = "-1" #-1 means all if -1 is used then from and to ports should be 0
-    cidr_blocks      = ["0.0.0.0/0"]
+    cidr_blocks      = var.cidr_blocks
   }
 
-  tags = {
-    Name = "allow_tag" # Name (refer security group for better understanding)
-  }
+  tags = var.sec_tag
 }
 
 # to see the values in above resource output give type.name (eg:- aws_security_group.allow_tls) in output and you can take id or name any parameter
