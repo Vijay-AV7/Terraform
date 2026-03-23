@@ -46,7 +46,3 @@ resource "aws_instance" "instance" { # here aws_instance is resource type (prede
     }
   )
 }
-
-# output "security_group_info" {
-#       value = aws_instance.instance 
-#     }
