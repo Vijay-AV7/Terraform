@@ -37,7 +37,7 @@ resource "aws_instance" "instance" { # here aws_instance is resource type (prede
 
   tags = {
     Name = "terraform" #This is our instance name
-    Purpose = "terraform-practice"
+    Purpose = var.ec2_tags
   }
 }
 

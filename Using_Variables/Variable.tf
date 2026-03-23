@@ -14,3 +14,13 @@ variable "instance_type" {
  type = string
   default = "t3.micro"
 }
+
+variable "ec2_tags" {
+    type = map
+    default = {
+        Project = "terraform"
+        Component = "backend"
+        Environment = "dev"
+        Name = "terraform-backend-dev"
+    }
+}
