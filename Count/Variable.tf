@@ -25,10 +25,10 @@ variable "instance_name" {
 }
 
 variable "common_tags" {
- type = maps 
+ type = map
  default = {
- environment = dev
- project = Heineken
+    environment = dev
+    project = Heineken
  }
 }
 
