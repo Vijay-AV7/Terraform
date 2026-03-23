@@ -36,11 +36,17 @@ resource "aws_instance" "instance" { # here aws_instance is resource type (prede
   ami           = var.ami_id # This is devops-practice AMI ID
   instance_type = var.environment == "dev" ? "t3.micro" : "t2.micro" #If yes t3.micro else t2.micro
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
-  tags = {
+  # tags = {
+  #   Name = var.instance_name[count.index] # Name (refer security group for better understanding)
+  # }
+    tags = merge(
+      var.common_tags,
+    {
     Name = var.instance_name[count.index] # Name (refer security group for better understanding)
-  }
+    }
+  )
 }
 
-output "security_group_info" {
-      value = aws_instance.instance 
-    }
+# output "security_group_info" {
+#       value = aws_instance.instance 
+#     }

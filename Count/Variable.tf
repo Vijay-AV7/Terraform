@@ -21,7 +21,15 @@ variable "instance_type" {
 
 variable "instance_name" {
  type = list   
- default = [mysql, backend, frontend]
+ default = ["mysql", "backend", "frontend"]
+}
+
+variable "common_tags" {
+ type = maps 
+ default = {
+ environment = dev
+ project = Heineken
+ }
 }
 
 variable "ec2_tags" {
