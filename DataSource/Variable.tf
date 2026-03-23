@@ -41,3 +41,13 @@ variable "ec2_tags" {
         Name = "terraform-backend-dev" # Name of the instance and  Can be seen in Instance tag
     }
 }
+
+variable "zone_id" {
+    type = string
+    default = "Z0754602YHD19L5ZRYW1"
+}
+
+variable "domain_name" {
+    type = string
+    default = "vijaydev.space"
+}
