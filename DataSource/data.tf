@@ -4,7 +4,7 @@ data "aws_ami" "RHEL" {
     
     filter {
         name   = "name"
-        values = ["RHEL-9-DevOps-Practice"]
+        values = ["Redhat-9-DevOps-Practice"]
     }
 
     filter {
@@ -22,9 +22,9 @@ data "aws_vpc" "default" {
   default = true
 }
 
-output  "ami_id" {
-  value       = data.aws_ami.RHEL.id
-}
+# output  "ami_id" {
+#   value       = data.aws_ami.RHEL.id
+# }
 
 output "default_vpc_id" {
     value = data.aws_vpc.default.id
