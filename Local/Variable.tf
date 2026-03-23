@@ -24,6 +24,11 @@ variable "instance_name" {
  default = ["mysql", "backend", "frontend"]
 }
 
+variable "cidr_range" {
+ type = list   
+ default = ["0.0.0.0/0"]
+}
+
 variable "common_tags" {
  type = map
  default = {
