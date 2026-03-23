@@ -1,4 +1,4 @@
-data "aws_ami" "RHEL9" {
+data "aws_ami" "RHEL" {
     most_recent      = true
     owners           = ["973714476881"]
     
@@ -23,7 +23,7 @@ data "aws_vpc" "default" {
 }
 
 output  "ami_id" {
-  value       = data.aws_ami.RHEL9.id
+  value       = data.aws_ami.RHEL.id
 }
 
 output "default_vpc_id" {
