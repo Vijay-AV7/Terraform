@@ -19,6 +19,11 @@ variable "instance_type" {
   default = "t3.micro"
 }
 
+variable "instance_name" {
+ type = list   
+ default = [mysql, backend, frontend]
+}
+
 variable "ec2_tags" {
     type = map
     default = {

@@ -31,11 +31,14 @@ resource "aws_security_group" "allow_tls" {
 
 # Creating Ec2 Instance
 resource "aws_instance" "instance" { # here aws_instance is resource type (predefined) cannot change. "instance" is resource name and its used to refer the resoruce 
-  count = 3
+  # count = 3
+  count = length(var.instance_name)
   ami           = var.ami_id # This is devops-practice AMI ID
   instance_type = var.environment == "dev" ? "t3.micro" : "t2.micro" #If yes t3.micro else t2.micro
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
-  tags = var.ec2_tags
+  tags = {
+    Name = var.instance_name[count.index] # Name (refer security group for better understanding)
+  }
 }
 
 output "security_group_info" {
