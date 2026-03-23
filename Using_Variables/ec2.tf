@@ -1,7 +1,7 @@
 # Creating Security Group
 #Since we have provided region in provider file terraform will pick that
 resource "aws_security_group" "allow_tls" {
-  name        = "allow_tls"
+  name        = "allow_tls" #Security group name
   description = "Allow TLS inbound traffic and all outbound traffic"
   
   ingress {
@@ -19,7 +19,7 @@ resource "aws_security_group" "allow_tls" {
   }
 
   tags = {
-    Name = "allow_tls"
+    Name = "allow_tag" # Name (refer security group for better understanding)
   }
 }
 
